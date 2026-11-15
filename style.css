@@ -37,6 +37,21 @@ footer a{margin-right:14px}
 :root[data-lang=de] .ru,:root[data-lang=en] .ru{display:none}
 :root[data-lang=ru] .de,:root[data-lang=ru] .en{display:none}
 :root[data-lang=ru] .lang a[data-l=ru]{background:var(--accent);border-color:var(--accent);color:var(--btn-fg)}
+/* Mobil: lange Wörter umbrechen, Tippflächen >= 44 px */
+main{overflow-wrap:anywhere}
+:root[data-lang=de] main p,:root[data-lang=de] main li{hyphens:auto}
+main h1,main h2,main h3,main strong,main b,main .about p,main .card p{hyphens:manual}
+@media (max-width:700px){
+header .wrap{gap:0 12px;padding-top:4px;padding-bottom:4px}
+.brand{min-height:44px}
+nav a{display:inline-flex;align-items:center;min-height:44px;margin-right:0;padding:0 8px}
+.lang a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:0 12px}
+footer a{display:inline-block;padding:12px 4px;margin-right:12px}
+.about{gap:14px}
+main{padding-top:20px}
+main h1{font-size:clamp(24px,7.4vw,34px)}
+main .hero h1{font-size:clamp(26px,8vw,40px)}
+}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:18px 0}
 .grid .card{margin:0}
 .grid h3{margin-top:0}
