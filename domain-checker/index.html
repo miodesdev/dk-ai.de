@@ -91,8 +91,8 @@
 #tool .row{align-items:flex-end}
 #tool input[type=text]{height:var(--ch)}
 #tool .cust input[type=text]{height:30px}
-#tool .seg{height:var(--ch);align-items:stretch}
-#tool .seg button{height:100%;display:inline-flex;align-items:center}
+#tool .seg{min-height:var(--ch);align-items:stretch}
+#tool .seg button{min-height:calc(var(--ch) - 2px);display:inline-flex;align-items:center;justify-content:center;text-align:center;line-height:1.25}
 #tool .cb{min-height:var(--ch)}
 #tool #sLen,#tool #eLen,#tool #ePos{display:flex;flex-wrap:wrap;align-items:center}
 #tool .ctl button,#tool .bar>button{height:var(--ch);display:inline-flex;align-items:center;justify-content:center;padding-top:0;padding-bottom:0}
@@ -103,6 +103,26 @@
 .donate:focus-visible{outline:3px solid #ff9100;outline-offset:3px}
 .donate .de,.donate .en,.donate .ru{color:inherit}
 @media(max-width:520px){.donate{width:100%;justify-content:center}}
+@media(max-width:520px){
+#tool{padding:12px;margin:10px 0}
+#tool .card{padding:12px}
+#tool .bar #lvl{flex:1 1 100%;margin-right:0}
+#tool .bar #lvl button{flex:1}
+#tool .bar #favBtn{flex:1}
+#tool .tabs{flex-wrap:nowrap;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+#tool .tabs button{flex:0 0 auto;padding:9px 12px}
+#tool .ctl{gap:8px}
+#tool .ctl .sp{display:none}
+#tool .ctl #go,#tool .ctl #stop{order:1;flex:1}
+#tool .ctl #copyFree{order:2;flex:1}
+#tool .ctl #est{order:3;flex:1 1 100%}
+#tool th,#tool td{padding:6px 7px}
+#tool .row{gap:10px 16px}
+#tool .seg{max-width:100%}
+#tool .seg button{padding:6px 8px}
+#tool .ctl button{padding-left:8px;padding-right:8px}
+}
+#tool .tabs{position:relative}
 .wrap{max-width:980px}
 </style>
 <noscript><style>@media (max-width:700px){.burger{display:none!important}.menu{display:block!important}}</style></noscript>
@@ -447,7 +467,7 @@ function ui(){
   x.oninput=()=>{const was=!!cleanTLD(S.cust[i]),is=!!cleanTLD(x.value);S.cust[i]=x.value;if(!is)S.custOn[i]=false;else if(!was)S.custOn[i]=true;save();ui();const n=$("#custGrid").children[i].querySelector("input[type=text]");n.focus();n.setSelectionRange(n.value.length,n.value.length)};
   x.onchange=()=>ui();w.append(c,x);cg.appendChild(w)});
  /* Erweitert */
- seg($("#tabs"),["keywords","short","expand"].map(m=>[m,t("m_"+m)]),S.mode,v=>set("mode",v));$("#tabs").className="tabs";$("#tabs").style.opacity=busy?.5:1;
+ seg($("#tabs"),["keywords","short","expand"].map(m=>[m,t("m_"+m)]),S.mode,v=>set("mode",v));$("#tabs").className="tabs";$("#tabs").style.opacity=busy?.5:1;{const tb=$("#tabs"),o=tb.querySelector(".on");if(o&&(o.offsetLeft<tb.scrollLeft||o.offsetLeft+o.offsetWidth>tb.scrollLeft+tb.clientWidth))tb.scrollLeft=Math.max(0,o.offsetLeft-12)}
  for(const m of["keywords","short","expand"])$("#m_"+m).classList.toggle("hide",S.mode!==m);
  $("#prefix").value!==S.prefix&&($("#prefix").value=S.prefix);$("#prefix").disabled=busy||S.pos==2;$("#hyph").checked=S.hyph;$("#hyph").disabled=busy;
  seg($("#pos"),[0,1,2].map(i=>[i,t("p"+i)]),S.pos,v=>set("pos",v));
