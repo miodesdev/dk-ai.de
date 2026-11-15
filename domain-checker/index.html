@@ -123,6 +123,42 @@
 #tool .ctl button{padding-left:8px;padding-right:8px}
 }
 #tool .tabs{position:relative}
+/* aktiver Modus/Tab deutlicher */
+#tool input[type=checkbox]{accent-color:var(--acc)}
+#tool .seg button.on{background:var(--acc);color:var(--bg);font-weight:700}
+#tool .tabs{gap:4px;margin-bottom:0;border-bottom:3px solid var(--acc)}
+#tool .tabs button{border:1px solid var(--line);border-bottom:0;border-radius:10px 10px 0 0;background:var(--panel);color:var(--mute);margin-bottom:0}
+#tool .tabs button:hover:not(.on){border-color:var(--acc);color:var(--ink)}
+#tool .tabs button.on{background:var(--acc);color:var(--bg);border-color:var(--acc);font-weight:700}
+#tool #advBox .card{border:2px solid var(--acc);border-top:0;border-radius:0 0 12px 12px;background:var(--tint)}
+#tool:has(#advBox:not(.hide)) #tldBox{border-color:var(--acc)}
+/* weiße Eingabefelder, ausgegraut wenn inaktiv, Schalter im Farbton des Schemas */
+#tool{--tint:color-mix(in srgb,var(--acc) 8%,var(--panel));--field:#fff;--off:hsl(var(--h) calc(var(--s)*.12) 91%);--offink:#9aa5a5;--sw:color-mix(in srgb,var(--acc) 9%,var(--panel))}
+@media(prefers-color-scheme:dark){#tool{--field:hsl(var(--h) calc(var(--s)*.4) 18%);--off:hsl(var(--h) calc(var(--s)*.3) 11%);--offink:#6b7777}}
+#tool textarea,#tool input[type=text]{background:var(--field)}
+#tool textarea:disabled,#tool input[type=text]:disabled{background:var(--off);color:var(--offink);border-color:var(--line);cursor:not-allowed;-webkit-text-fill-color:var(--offink);opacity:1}
+#tool label.cb:has(input:disabled){color:var(--offink)}
+#tool .seg button{background:var(--sw)}
+#tool .seg button:hover:not(:disabled):not(.on){background:var(--accbg)}
+#tool .seg button.on{background:var(--acc)}
+#tool .seg button:disabled:not(.on){background:var(--off);color:var(--offink);opacity:1}
+#tool .seg button.on:disabled{opacity:.55}
+#tool .tabs button:not(.on){background:var(--sw)}
+#tool .chip{background:var(--sw)}
+#tool .chip:hover:not(:disabled):not(.on){background:var(--accbg)}
+#tool .chip.on{background:var(--acc);color:var(--bg);border-color:var(--acc);font-weight:650}
+#tool .chip:disabled:not(.on){background:var(--off);color:var(--offink);opacity:1}
+#tool .chip.on:disabled{opacity:.55}
+#tool button.primary:disabled,#tool .ctl button:disabled{background:var(--off);color:var(--offink);border-color:var(--line);opacity:1}
+#tool #themeSeg .chip{display:inline-flex;align-items:center;gap:7px}
+#tool #themeSeg .chip::before{content:"";width:11px;height:11px;border-radius:50%;background:hsl(var(--h) 55% 52%);border:1px solid rgba(0,0,0,.25)}
+#tool #themeSeg .chip[data-th=teal]{--h:178}
+#tool #themeSeg .chip[data-th=blue]{--h:210}
+#tool #themeSeg .chip[data-th=yellow]{--h:48}
+#tool #themeSeg .chip[data-th=pink]{--h:340}
+#tool #themeSeg .chip[data-th=green]{--h:135}
+#tool #themeSeg .chip[data-th=white]::before{background:#fff}
+#tool #simpleBox,#tool #tldBox{background:var(--tint)}
 .wrap{max-width:980px}
 </style>
 <noscript><style>@media (max-width:700px){.burger{display:none!important}.menu{display:block!important}}</style></noscript>
@@ -449,7 +485,7 @@ const set=(k,v)=>{S[k]=v;save();ui()};
 const toggleIn=(k,v,on)=>{S[k]=on?[...new Set([...S[k],v])]:S[k].filter(x=>x!==v);save();ui()};
 function ui(){
  $("#tool").dataset.theme=S.theme;
- const ts=$("#themeSeg");ts.innerHTML="";for(const k of["white","teal","blue","yellow","pink","green"]){const b=document.createElement("button");b.className="chip"+(S.theme===k?" on":"");b.textContent=t("th_"+k);b.onclick=()=>set("theme",k);ts.appendChild(b)}
+ const ts=$("#themeSeg");ts.innerHTML="";for(const k of["white","teal","blue","yellow","pink","green"]){const b=document.createElement("button");b.className="chip"+(S.theme===k?" on":"");b.textContent=t("th_"+k);b.dataset.th=k;b.onclick=()=>set("theme",k);ts.appendChild(b)}
  document.querySelectorAll("[data-t]").forEach(e=>e.textContent=t(e.dataset.t));
  const busy=run.running;
  seg($("#lvl"),[["simple",t("simple")],["advanced",t("adv")]],S.lvl,v=>set("lvl",v));
