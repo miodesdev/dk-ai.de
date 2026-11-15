@@ -1,6 +1,6 @@
 (function(){
 var d=document.documentElement;
-var ANCH=['leistungen','ueber','kontakt'];
+var ANCH=['leistungen','ueber','kontakt','webtool'];
 function pick(){var p=new URLSearchParams(location.search).get('lang');
  if(p==='de'||p==='en'||p==='ru')return p;
  var n=(navigator.language||'en').toLowerCase();return n.indexOf('de')===0?'de':(n.indexOf('ru')===0?'ru':'en');}
