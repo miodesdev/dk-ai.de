@@ -41,13 +41,33 @@ footer a{margin-right:14px}
 main{overflow-wrap:anywhere}
 :root[data-lang=de] main p,:root[data-lang=de] main li{hyphens:auto}
 main h1,main h2,main h3,main strong,main b,main .about p,main .card p{hyphens:manual}
+.menu{display:contents}
+.burger{display:none;width:48px;height:48px;padding:0;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--fg);flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer}
+.burger i{display:block;width:22px;height:2.5px;background:currentColor;border-radius:2px;transition:transform .2s,opacity .2s}
+header.open .burger i:nth-of-type(1){transform:translateY(7.5px) rotate(45deg)}
+header.open .burger i:nth-of-type(2){opacity:0}
+header.open .burger i:nth-of-type(3){transform:translateY(-7.5px) rotate(-45deg)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* Kopfzeile bleibt beim Scrollen oben; Marke mit mehr Präsenz */
+html{scroll-padding-top:104px}
+header{position:sticky;top:0;z-index:100;background:var(--bg)}
+header.open{max-height:100vh;max-height:100dvh;overflow-y:auto}
+header .brand{font-size:28px;gap:14px}
+header .brand img{width:52px;height:52px}
+@media (min-width:701px){header .wrap{min-height:88px}}
+@media (max-width:700px){html{scroll-padding-top:80px}}
 @media (max-width:700px){
-header .wrap{gap:0 12px;padding-top:4px;padding-bottom:4px}
-.brand{min-height:44px}
-nav a{display:inline-flex;align-items:center;min-height:44px;margin-right:0;padding:0 8px}
-.lang a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:0 12px}
+header .wrap{flex-wrap:wrap;gap:0;padding-top:8px;padding-bottom:8px}
+header .brand{font-size:26px;gap:12px;margin-right:auto;min-height:52px}
+header .brand img{width:52px;height:52px}
+.burger{display:flex}
+.menu{display:none;flex:0 0 calc(100% + 40px);margin:8px -20px -8px;padding:4px 20px 16px;background:var(--card);border-top:1px solid var(--line)}
+header.open .menu{display:block}
+.menu nav{display:block}
+.menu nav a{display:flex;align-items:center;min-height:52px;margin:0;padding:0;font-size:19px;border-bottom:1px solid var(--line)}
+.menu .lang{display:flex;gap:6px;margin:14px 0 0}
+.menu .lang a{display:inline-flex;align-items:center;justify-content:center;min-height:48px;min-width:52px;padding:0 14px;font-size:17px}
 footer a{display:inline-block;padding:12px 4px;margin-right:12px}
-.lang{margin-left:auto}
 .about{gap:14px}
 main{padding-top:20px}
 main br.mbr{display:inline}
