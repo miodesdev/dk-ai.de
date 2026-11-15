@@ -96,6 +96,13 @@
 #tool .cb{min-height:var(--ch)}
 #tool #sLen,#tool #eLen,#tool #ePos{display:flex;flex-wrap:wrap;align-items:center}
 #tool .ctl button,#tool .bar>button{height:var(--ch);display:inline-flex;align-items:center;justify-content:center;padding-top:0;padding-bottom:0}
+.titlerow{display:flex;align-items:center;justify-content:space-between;gap:12px 20px;flex-wrap:wrap;margin:0 0 .6em}
+.titlerow h1{margin:0}
+.donate{display:inline-flex;align-items:center;gap:8px;background:#d6246e;color:#fff!important;font-weight:700;font-size:16px;line-height:1;padding:12px 22px;border-radius:10px;text-decoration:none!important;box-shadow:0 2px 8px rgba(214,36,110,.35);transition:background .15s,transform .15s}
+.donate:hover{background:#b81c5c;transform:translateY(-1px)}
+.donate:focus-visible{outline:3px solid #d6246e;outline-offset:3px}
+.donate .de,.donate .en,.donate .ru{color:inherit}
+@media(max-width:520px){.donate{width:100%;justify-content:center}}
 .wrap{max-width:980px}
 </style>
 <noscript><style>@media (max-width:700px){.burger{display:none!important}.menu{display:block!important}}</style></noscript>
@@ -112,7 +119,10 @@
 </div>
 </div></header>
 <main><div class="wrap">
+<div class="titlerow">
 <h1>Domain-Checker</h1>
+<a class="donate" href="https://stripe.com/@dkai" target="_blank" rel="noopener">☕ <span class="de" lang="de">Kaffee spendieren</span><span class="en" lang="en">Buy me a coffee</span><span class="ru" lang="ru">Угостить кофе</span></a>
+</div>
 <p class="lead" data-t="lead"></p>
 <div id="tool" data-theme="white">
 <div class="bar">
