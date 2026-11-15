@@ -318,7 +318,7 @@ copied:["Copied","Kopiert","Скопировано"],
 };
 
 /* ---------- Zustand (localStorage) ---------- */
-const DEF={theme:"white",lvl:"simple",mode:"keywords",acc:"thorough",reg:"namecheap",fav:[],tlds:["com","de","net","org","es","ru","tech","io","app","ai","dev","cc"],
+const DEF={theme:"white",lvl:"simple",mode:"keywords",acc:"fast",reg:"namecheap",fav:[],tlds:["com","de","net","org","es","ru","tech","io","app","ai","dev","cc"],
  cust:Array(8).fill(""),custOn:Array(8).fill(false),prefix:"dk",hyph:true,pos:0,kw:"",sLen:[1,2,3],sSet:0,eKw:"",eLen:[1,2],eSet:0,ePos:[0,1]};
 let S;try{S={...DEF,...JSON.parse(localStorage.getItem("dc")||"{}")}}catch(e){S={...DEF}}
 const save=()=>{try{localStorage.setItem("dc",JSON.stringify(S))}catch(e){}};
