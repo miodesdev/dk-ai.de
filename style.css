@@ -64,8 +64,8 @@ header .brand img{width:52px;height:52px}
 .menu{display:none;flex:0 0 calc(100% + 40px);margin:8px -20px -8px;padding:4px 20px 16px;background:var(--card);border-top:1px solid var(--line)}
 header.open .menu{display:block}
 .menu nav{display:block}
-.menu nav a{display:flex;align-items:center;min-height:52px;margin:0;padding:0;font-size:19px;border-bottom:1px solid var(--line)}
-.menu .lang{display:flex;gap:6px;margin:14px 0 0}
+.menu nav a{display:flex;align-items:center;justify-content:flex-end;text-align:right;min-height:52px;margin:0;padding:0;font-size:19px;border-bottom:1px solid var(--line)}
+.menu .lang{display:flex;justify-content:flex-end;gap:6px;margin:14px 0 0}
 .menu .lang a{display:inline-flex;align-items:center;justify-content:center;min-height:48px;min-width:52px;padding:0 14px;font-size:17px}
 footer a{display:inline-block;padding:12px 4px;margin-right:12px}
 .about{gap:14px}
