@@ -131,6 +131,10 @@
 #tool .tabs button:hover:not(.on){border-color:var(--acc);color:var(--ink)}
 #tool .tabs button.on{background:var(--acc);color:var(--bg);border-color:var(--acc);font-weight:700}
 #tool #advBox .card{border:2px solid var(--acc);border-top:0;border-radius:0 0 12px 12px;background:var(--tint)}
+/* keine leere Zeile zwischen Tab-Linie und Inhalt */
+#tool #advBox .card{padding-top:8px;margin-top:0}
+#tool #advBox .tabs{margin-bottom:0}
+#tool #advBox .card>div>.row{margin-top:0}
 #tool:has(#advBox:not(.hide)) #tldBox{border-color:var(--acc)}
 /* weiße Eingabefelder, ausgegraut wenn inaktiv, Schalter im Farbton des Schemas */
 #tool{--tint:color-mix(in srgb,var(--acc) 8%,var(--panel));--field:#fff;--off:hsl(var(--h) calc(var(--s)*.12) 91%);--offink:#9aa5a5;--sw:color-mix(in srgb,var(--acc) 9%,var(--panel))}
