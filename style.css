@@ -115,9 +115,9 @@ header .wrap{gap:0;padding-top:4px;padding-bottom:4px}
 .menu{display:none;flex:0 0 calc(100% + 44px);margin:4px -22px -4px;padding:8px 22px 28px;background:var(--bg)}
 header.open .menu{display:block}
 .menu nav{display:block}
-.menu nav a,.menu nav a+a{display:flex;align-items:center;justify-content:flex-start;min-height:56px;margin:0;padding:0;font-size:26px;font-weight:600;letter-spacing:-.02em;opacity:1;color:var(--fg);border-bottom:1px solid var(--line)}
+.menu nav a,.menu nav a+a{display:flex;align-items:center;justify-content:flex-start;min-height:40px;margin:0;padding:0;font-size:20px;font-weight:600;letter-spacing:-.02em;opacity:1;color:var(--fg);border-bottom:1px solid var(--line)}
 .menu .lang{display:flex;width:fit-content;margin:24px 0 0;background:var(--card)}
-.menu .lang a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:56px;padding:0 16px;font-size:16px}
+.menu .lang a{display:inline-flex;align-items:center;justify-content:center;min-height:32px;min-width:56px;padding:0 16px;font-size:16px}
 footer a{display:inline-block;padding:12px 4px;margin-right:14px}
 main{padding-top:36px}
 main br.mbr{display:inline}
