@@ -2,13 +2,13 @@
 :root{color-scheme:light dark;--bg:#fff;--fg:#1d1d1f;--muted:#6e6e73;--line:rgba(0,0,0,.14);--accent:#0071e3;--link:#0066cc;--card:#f5f5f7;--btn-fg:#fff;--hdr:rgba(255,255,255,.8)}
 @media (prefers-color-scheme:dark){:root{--bg:#000;--fg:#f5f5f7;--muted:#a1a1a6;--line:rgba(255,255,255,.2);--accent:#0071e3;--link:#2997ff;--card:#1d1d1f;--btn-fg:#fff;--hdr:rgba(0,0,0,.72)}}
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-padding-top:72px;scroll-behavior:smooth}
+html{overflow-y:scroll;-webkit-text-size-adjust:100%;scroll-padding-top:72px;scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.47 -apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Segoe UI",Roboto,Helvetica,Arial,sans-serif;letter-spacing:-.01em;-webkit-font-smoothing:antialiased}
 a{color:var(--link);text-decoration:none}
 a:hover{text-decoration:underline}
 a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
-.wrap{max-width:720px;margin:0 auto;padding:0 22px}
-.home .wrap{max-width:980px}
+.wrap{max-width:980px;margin:0 auto;padding:0 22px}
+body:not(.home) main .wrap>div{max-width:720px}
 
 /* Kopfzeile: flach, Milchglas, bleibt oben */
 header{position:sticky;top:0;z-index:100;background:var(--hdr);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line)}
@@ -81,10 +81,14 @@ code,kbd{font:14px ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--
 .about{display:flex;flex-direction:row;align-items:center;gap:48px;max-width:820px;margin:0 auto;text-align:left}
 .about p{margin:0;font-size:clamp(18px,2.2vw,22px);line-height:1.42;letter-spacing:-.015em}
 .photo{width:200px;height:200px;border-radius:50%;object-fit:cover;flex:none}
-.home h2[id^=kontakt]~p{text-align:center;font-size:21px;margin:8px 0}
-.home h2[id^=kontakt]~p+p{font-size:15px;color:var(--muted);margin-top:24px}
-.home h2[id^=kontakt]~p a{display:inline-block;padding:9px 0;margin:-9px 0}
 .home main{padding-bottom:72px}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:32px 48px;max-width:820px;margin:0 auto;padding:40px 44px;text-align:left}
+.contact p{margin:0}
+.contact .lbl{font-size:14px;color:var(--muted)}
+.contact .val{font-size:20px;line-height:1.4;letter-spacing:-.015em}
+.contact .lbl+.val{margin-top:2px}
+.contact .val+.lbl{margin-top:22px}
+.contact .val a{display:inline-block;padding:6px 0}
 
 /* Fußzeile */
 footer{background:var(--card);border-top:1px solid var(--line);padding:20px 0 30px;font-size:13px;color:var(--muted)}
@@ -127,6 +131,8 @@ h1{font-size:clamp(30px,8vw,40px)}
 .banner{margin-top:40px;border-radius:20px}
 .home h2{margin:88px 0 28px}
 .card,.home .grid .card,.projects .card{border-radius:22px;padding:28px 24px}
+.contact{grid-template-columns:1fr;gap:24px;padding:28px 24px}
+.contact .val{font-size:18px}
 .about{gap:18px}
 .photo{width:96px;height:96px}
 .about p{font-size:16px;line-height:1.4}
