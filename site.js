@@ -1,6 +1,6 @@
 (function(){
 var d=document.documentElement;
-var ANCH=['leistungen','ueber','kontakt'];
+var ANCH=['leistungen','ueber','projekte','kontakt'];
 function set(l){d.setAttribute('data-lang',l);d.setAttribute('lang',l);
  var a=document.querySelectorAll('a[data-i]');
  for(var i=0;i<a.length;i++){var h=a[i].getAttribute('data-i'),hash='';var k=h.indexOf('#');
