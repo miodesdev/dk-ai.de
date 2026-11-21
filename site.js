@@ -11,6 +11,7 @@ function set(l){d.setAttribute('data-lang',l);d.setAttribute('lang',l);
   var u=h+'?lang='+l;
   if(hash)u+='#'+(ANCH.indexOf(hash)>=0?hash+'-'+l:hash);
   a[i].setAttribute('href',u);}
+ var ls=document.querySelectorAll('.lang a');for(var q=0;q<ls.length;q++){if(ls[q].getAttribute('data-l')===l)ls[q].setAttribute('aria-current','true');else ls[q].removeAttribute('aria-current');}
  var t=document.body.getAttribute('data-title-'+l);if(t)document.title=t;}
 var l0=pick();set(l0);
 var h0=location.hash.slice(1);
