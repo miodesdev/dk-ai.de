@@ -25,6 +25,6 @@ for(var i=0;i<b.length;i++){b[i].addEventListener('click',function(e){e.preventD
 var h=document.querySelector('header'),b=document.querySelector('.burger');if(!h||!b)return;
 function set(o){h.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');}
 b.addEventListener('click',function(){set(!h.classList.contains('open'));});
-document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false);});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&h.classList.contains('open')){set(false);b.focus();}});
 var l=h.querySelectorAll('.menu a');for(var i=0;i<l.length;i++)l[i].addEventListener('click',function(){set(false);});
 })();
