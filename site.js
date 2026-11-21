@@ -1,9 +1,6 @@
 (function(){
 var d=document.documentElement;
-var ANCH=['leistungen','ueber','kontakt','webtool'];
-function pick(){var p=new URLSearchParams(location.search).get('lang');
- if(p==='de'||p==='en'||p==='ru')return p;
- var n=(navigator.language||'en').toLowerCase();return n.indexOf('de')===0?'de':(n.indexOf('ru')===0?'ru':'en');}
+var ANCH=['leistungen','ueber','kontakt'];
 function set(l){d.setAttribute('data-lang',l);d.setAttribute('lang',l);
  var a=document.querySelectorAll('a[data-i]');
  for(var i=0;i<a.length;i++){var h=a[i].getAttribute('data-i'),hash='';var k=h.indexOf('#');
@@ -13,7 +10,7 @@ function set(l){d.setAttribute('data-lang',l);d.setAttribute('lang',l);
   a[i].setAttribute('href',u);}
  var ls=document.querySelectorAll('.lang a');for(var q=0;q<ls.length;q++){if(ls[q].getAttribute('data-l')===l)ls[q].setAttribute('aria-current','true');else ls[q].removeAttribute('aria-current');}
  var t=document.body.getAttribute('data-title-'+l);if(t)document.title=t;}
-var l0=pick();set(l0);
+var l0=d.getAttribute('data-lang');if(l0!=='de'&&l0!=='ru')l0='en';set(l0);
 var h0=location.hash.slice(1);
 if(ANCH.indexOf(h0)>=0)h0=h0+'-'+l0;
 if(h0){var el=document.getElementById(h0);if(el)setTimeout(function(){el.scrollIntoView();},0);}
