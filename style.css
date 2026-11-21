@@ -153,3 +153,5 @@ html{scroll-behavior:auto}
 .skip{position:absolute;left:12px;top:-60px;z-index:200;background:var(--accent);color:#fff;padding:10px 16px;border-radius:980px}
 .skip:focus{top:8px;text-decoration:none}
 main:focus{outline:none}
+
+.dac b{font-weight:700;font-style:normal}.dac i{font-weight:400;font-style:italic}
