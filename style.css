@@ -155,3 +155,9 @@ main:focus{outline:none}
 
 .dac b{font-weight:700;font-style:normal}.dac i{font-weight:400;font-style:italic}
 .dd{font-weight:400}.dd b{font-weight:700}
+
+/* Datenschutzerklärung: automatische Abschnittsnummern, Hinweisbox */
+body.privacy main{counter-reset:abschnitt}
+body.privacy main h2{counter-increment:abschnitt}
+body.privacy main h2::before{content:counter(abschnitt) ". "}
+.box{background:var(--card);border-left:4px solid var(--accent);padding:.8rem 1rem;border-radius:4px}
